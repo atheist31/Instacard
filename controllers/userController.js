@@ -70,10 +70,9 @@ exports.getUserById = async (req, res) => {
   try {
     const user = await UserModel.findById(req.params.id);
 
-    if (!user)
-      return next(
-        new ErrorHandler(`User doesn't exist with Id: ${req.params.id}`)
-      );
+    if (!user) {
+      return res.send(`User doesn't exist with Id: ${req.params.id}`);
+    }
 
     res.status(200).send({ success: true, user });
   } catch (error) {

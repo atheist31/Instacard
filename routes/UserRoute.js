@@ -23,7 +23,7 @@ UserRouter.get(
 UserRouter.get(
   "/:id",
   isAuthenticatedUser,
-  authorizeRoles("admin"),
+  // authorizeRoles("admin"),
   getUserById
 );
 
